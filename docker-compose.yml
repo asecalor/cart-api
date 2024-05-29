@@ -1,0 +1,17 @@
+version: '3.8'
+services:
+  api:
+    container_name: "cart-api"
+    build:
+      context: ./
+      dockerfile: ./Dockerfile
+    volumes:
+      - ./src:/app/src
+    ports:
+      - '3002:3002'
+    networks:
+      - aseca-environment
+
+networks:
+  aseca-environment:
+    external: true
