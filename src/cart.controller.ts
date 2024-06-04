@@ -9,8 +9,9 @@ export class CartController {
 
   @Post()
   async addProductToCart(@Body() createOrderDTO: CreateOrderDTO) {
-    await firstValueFrom(
+    const response=await firstValueFrom(
       this.httpService
         .post('http://control-tower-api:3000/order',createOrderDTO))
+    return response.data;
   }
 }
